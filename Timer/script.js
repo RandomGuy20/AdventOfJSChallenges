@@ -10,24 +10,20 @@ Once the timer finishes, the ring should change from green to red and an alert m
 const start = document.querySelector(".start");
 const ring = document.querySelector(".ring");
 const settings = document.querySelector(".time").getElementsByTagName("input");
-const endingCircle = document.querySelector(".ring-ending-circle");
 const settingsButton = document.querySelector(".settings");
 const setminute = 0;
 const setSecond = 1;
 
 let isRunning = false;
 let isSetting = false;
-let timeValues = [0,0];
 let tempValues = [0,0];
 
 var callBack;
 
-//let tempTimer = setInterval(callbackTimer,1000);
 
 
-//const endingColor = document.querySelector(".ring-ending-circle").style.stroke;
-//const endingColor = endingCircle.style.stroke;
-//
+
+
 const countDown = function()
 {
     if(isRunning)
@@ -57,44 +53,50 @@ const setStageText = function()
 
 function callbackTimer()
 {
-
-    // have temporary array that takes in the math functions of the countdown and spits
-    // the new value sout to the console.
-
-    //console.log(finalSeconds);
     finalSeconds--;
-    //console.log(Math.floor(finalSeconds / 60));
-
     let x = Math.floor(finalSeconds / 60);
     let remainder = finalSeconds % 60;
-    //console.log(x);
-    //console.log(remainder);
-    if(finalSeconds >= 60)
-    {
+    settings[setminute].value = remainder < 10 ? "0" + x : x;
+    settings[setSecond].value = remainder < 10 ? "0" + remainder : remainder;
 
-    }
-    else
-    {
 
+    if(x ===0 && remainder === 0)
+    {
+        EndTime();
+        alert("The Timer is up!");
     }
+
 }
 
 function StartTimer()
 {
+    let temp =  ring.classList.replace(".ring",".ring-ending-circle");
+
+    isSetting = true;
+    finalSeconds = (parseInt(settings[setminute].value) * 60) + parseInt(settings[setSecond].value);
+    tempValues[0] = settings[setminute].value;
+    tempValues[1] = settings[setSecond].value;
+    console.log(finalSeconds);
     callBack = setInterval(callbackTimer,1000);
 }
 
 function EndTime()
 {
-    /*
-    1. Set ring to green, set all values back to initial value and text
-    */
+      let temp2 = ring.classList.replace(".ring-ending-circle",".ring");
+      isRunning = false;
+      setSetting(isRunning);
+      setStageText();
+      countDown();
+      clearInterval(callBack);
+      settings[setminute].value = tempValues[0];
+      settings[setSecond].value = tempValues[1];
 }
+
+
 
 //
 start.addEventListener("click",function()
 {
-    console.log("Start Button Click event");
     isRunning = !isRunning;
     setSetting(isRunning);
     countDown();
@@ -102,37 +104,36 @@ start.addEventListener("click",function()
 
     if(isRunning)
     {
-      let temp =  ring.classList.replace(".ring",".ring-ending-circle");
-      isSetting = true;
-      finalSeconds = (settings[setminute].value * 60) + settings[setSecond].value;
-      console.log(finalSeconds);
       StartTimer();
     }
     else    
     {
-      let temp2 = ring.classList.replace(".ring-ending-circle",".ring");
-      clearInterval(callBack);
+      EndTime();
     }
 
 });
 
 settingsButton.addEventListener("click",function()
 {
-    isSetting = !isSetting;
-    if (isSetting)
+    if(!isRunning)
     {
-        settings[setminute].disabled = true;
-        settings[setSecond].disabled = true;
-        isRunning = false;
-        countDown();
-        setStageText();
-    } 
-    else 
-    {
-        settings[setminute].disabled = false;
-        settings[setSecond].disabled = false;
-        isRunning = false;
-        countDown();
-        setStageText();
+        isSetting = !isSetting;
+        if (isSetting)
+        {
+            settings[setminute].disabled = true;
+            settings[setSecond].disabled = true;
+            isRunning = false;
+            countDown();
+            setStageText();
+        } 
+        else 
+        {
+            settings[setminute].disabled = false;
+            settings[setSecond].disabled = false;
+            isRunning = false;
+            countDown();
+            setStageText();
+        }
     }
+
 })
