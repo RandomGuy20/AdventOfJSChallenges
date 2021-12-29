@@ -29,7 +29,6 @@ for (let i = 0; i < blackKeys.length; i++)
 
 for (let i = 1; i < 24; i++)
 {
-    let temp = `key-${i}.mp3`;
-    mp3Files[i] = new Audio('audio/' + temp);
+    mp3Files[i] = new Audio(`audio/key-${i}.mp3`);
 }
 
