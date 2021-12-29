@@ -9,10 +9,10 @@ You can find more details about the challenge by [logging into Podia.](https://s
 
 ## Challenge
 
-Within the _STARTER-FILES_ folder, you'll find everything you need to get started.
 
 Users should be able to:
 
 - Start and Stop the Timer
 - Click on the gear icon to change the length (minutes and seconds) for the timer.
+- Once the timer finishes, the ring should change from green to red and an alert message is passed to the browser.
 
