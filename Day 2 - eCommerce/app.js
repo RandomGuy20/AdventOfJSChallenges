@@ -66,34 +66,6 @@ const menuItems = [
 ]
 
 
-const squareList = document.querySelector(".menu");
-const squareLi  = document.querySelector(".menu li");
-
-squareList.onclick = function(e)
-{
-
-}
-
-
-let items = document.querySelectorAll(".menu li"),
-tab = [], index;
-
-// add values to the array
-for(var i = 0; i < items.length; i++){
-tab.push(items[i].innerHTML);
-}
-
-// get selected element index
-for(var i = 0; i < items.length; i++)
-{
-items[i].onclick = function(){
-
-index = tab.indexOf(this.innerHTML);
-console.log(this.innerHTML + " Index = " + index);
-
-};
-}
-
 
 
 
