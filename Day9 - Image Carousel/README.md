@@ -1,8 +1,16 @@
-You can use as many (or as few) tools, libraries, and frameworks as you'd like. If you're trying to learn something new, this might be a great way to push yourself.
-
-Users should be able to: 
-
-    calculate tip based on tip percentage, bill amount, and number of people
+![Advent of JavaScript](https://coachtestprep.s3.amazonaws.com/direct-uploads/user-117025/5e8dae50-bea2-4920-8e33-8a73a9b62065/CleanShot%202021-12-09%20at%2008.24.54.png)
 
 
-Need some support on this challenge? Join the Learn Build Teach Discord community. We have a separate channel set up specifically for the Advent of JavaScript.
+# Day 9 - Image Carousel
+
+# Brief
+- In this project , we're creating an image carousel.
+
+
+## Challenge
+
+
+Users should be able to:
+
+  - toggle left and right through the image thumbnails
+  - click an image to select it manually

@@ -1,8 +1,15 @@
-You can use as many (or as few) tools, libraries, and frameworks as you'd like. If you're trying to learn something new, this might be a great way to push yourself.
-
-Users should be able to: 
-
-    calculate tip based on tip percentage, bill amount, and number of people
+![Advent of JavaScript](https://coachtestprep.s3.amazonaws.com/direct-uploads/user-117025/bb416274-317c-443c-98f9-e5418ca8059e/COVER.png)
 
 
-Need some support on this challenge? Join the Learn Build Teach Discord community. We have a separate channel set up specifically for the Advent of JavaScript.
+# Day 11 - Rock paper Scissors
+
+# Brief
+- In this project, we're creating a Rock, Paper, Scissors game.
+
+
+## Challenge
+
+
+Users should be able to:
+
+   - play the game and see the results
